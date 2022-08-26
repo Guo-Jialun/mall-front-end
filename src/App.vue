@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  //路由跳转时滚动条回到顶部
+  watch:{
+    '$route': function(){
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+    }
   }
 }
 </script>
@@ -23,6 +23,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+body {
+  margin: 0;
+  background: linear-gradient(35deg, #CCFFFF, #FFCCCC) fixed;
+  padding: 0 !important;
+  overflow-y: scroll !important; /*解决messageBox打开关闭页面抖动问题*/
+}
+
+
 </style>

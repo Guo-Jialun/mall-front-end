@@ -1,6 +1,6 @@
 <template>
     <div style="margin-bottom: 100px">
-      <el-carousel :interval="1500" type="card">
+      <el-carousel :interval="1500">
         <el-carousel-item v-for="item in this.indexImg" :key="item.imgId">
           <img :src="item.imgUrl" style="width: 100%; height: 100%; border-radius: 20px" alt="" @click="showDetail(item.prodId)"
                onerror="this.src = 'img/加载失败.png'">

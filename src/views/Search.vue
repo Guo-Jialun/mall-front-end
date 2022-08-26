@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="width: 100%;
-    height: 120px;
+    height: 150px;
     z-index: 3;
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC) fixed;
     position: fixed; top: 0">
@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 #search {
   z-index: 4;
   width: 40%;
@@ -67,7 +70,7 @@ export default {
   position: relative;
   top: 68px;
   z-index: 1;
-  width: 70%;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -83,4 +86,24 @@ export default {
   transform: scale(1.2) translateY(1px) translateX(1px);
 
 }
+
+@media screen and (max-width: 1200px){
+  #container {
+    top: 85px;
+    width: 90%;
+  }
+
+  #search {
+    z-index: 4;
+    width: 95%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 85px;
+    border: #cccccc solid 1px;
+    border-radius: 5px;
+  }
+}
+
 </style>

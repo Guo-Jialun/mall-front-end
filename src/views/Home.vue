@@ -149,4 +149,16 @@ export default {
 #bottom {
   margin-top: 70px;
 }
+
+@media screen and (max-width: 1200px){
+  #logo {
+    position: relative;
+    top: 5px;
+    float: left;
+    padding-left: 30px;
+    color: black;
+    font-family: 'Microsoft YaHei', serif;
+    font-size: 0;
+  }
+}
 </style>

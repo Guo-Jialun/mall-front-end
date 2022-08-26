@@ -3,7 +3,7 @@
     <el-row id="description">
       <el-col :span="4">
         <img :src="detail.img" alt=""
-             onerror="this.src='//iconfont.alicdn.com/s/210a299f-edad-4fc5-8396-9f743633f209_origin.svg';"
+             onerror="this.src='img/加载失败.png';"
              style="width: 100%; border-radius: 15px"/>
       </el-col>
       <el-col :span="20">

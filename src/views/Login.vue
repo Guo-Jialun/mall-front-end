@@ -125,9 +125,20 @@ export default {
 #form {
   background: rgba(255, 255, 255, 0.7);
   padding: 40px 50px 80px 50px;
-  width: 20%;
+  width: 350px;
   margin: 160px auto;
   border-radius: 20px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 1200px){
+  #form {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px 30px 80px 30px;
+    width: 280px;
+    margin: 100px auto;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4);
+  }
 }
 </style>

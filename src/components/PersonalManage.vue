@@ -2,7 +2,9 @@
   <div id="personalManage">
     <div style="height: 100px">
       <div style="text-align: left; float:left;" @click="openDialog3">
-        <el-avatar :size="100" :src="fileList[0].url"></el-avatar>
+        <el-avatar :size="100">
+          <img :src="baseURL + this.fileList[0].url" alt="">
+        </el-avatar>
       </div>
       <div style="float: left; font-size: 35px; color: #666666; position: relative; top: 65px; left: 20px">
         {{ this.nickname }}
@@ -146,7 +148,7 @@
         :visible.sync="dialogVisible3"
         width="40%"
         :lock-scroll="false">
-      <img :src="fileList[0].url" alt="" style="height: 200px; width: 200px;">
+      <img :src="baseURL + fileList[0].url" alt="" style="height: 200px; width: 200px;">
       <span slot="footer" class="dialog-footer">
             <el-upload
                 ref="upload"
@@ -189,6 +191,7 @@ export default {
       }
     };
     return {
+      baseURL: this.$imgBaseUrl,
       nickname: null,
       form: {
         shopName: '',
@@ -264,7 +267,7 @@ export default {
                           })
                           .then((res) => {
                             if (res.code === 10000) {
-                              this.$message.success('修改密码成功，请重新登录！');
+                              this.$message.success('修改密码成功，请重新登录！2秒后自动跳转登录页...');
                               setTimeout(() => {
                                 localStorage.clear();
                                 this.$router.replace('/login');

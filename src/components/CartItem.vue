@@ -3,8 +3,8 @@
     <div>
       <el-row class="cart">
         <el-col :span="3">
-          <img :src="itemData.img"
-               onerror="this.src='//iconfont.alicdn.com/s/210a299f-edad-4fc5-8396-9f743633f209_origin.svg';"
+          <img :src= "baseURL + itemData.img"
+               onerror="this.src='../assets/加载失败.png';"
                alt="" style="width: 100%; border-radius: 15px"/>
         </el-col>
         <el-col :span="21">
@@ -32,6 +32,7 @@ export default {
   props: ['item'],
   data() {
     return {
+      baseURL: this.$imgBaseUrl,
       step: 1,
       itemData: {},
       amount: 1,
@@ -79,7 +80,7 @@ export default {
 .select {
   font-size: xx-large;
   position: absolute;
-  left: -60px;
+  right: 20px;
   color: black;
   width: 50px;
   height: 100px;
@@ -87,11 +88,22 @@ export default {
 
 .price {
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   right: 240px;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: bold;
   color: red;
+}
+
+@media screen and (max-width: 1000px) {
+  .price {
+    position: absolute;
+    bottom: 27px;
+    right: 240px;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  }
 }
 
 </style>

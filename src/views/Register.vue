@@ -90,7 +90,11 @@ export default {
                 password: this.ruleForm.pass
               })
               .then(res => {
-                this.$message.success(res.msg);
+                this.$message.success(res.msg + "两秒后自动跳转到登录页...");
+                setTimeout(() => {
+                  localStorage.clear();
+                  this.$router.replace('/login');
+                }, 2000);
               });
         } else {
           return false;

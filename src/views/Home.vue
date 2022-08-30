@@ -13,7 +13,8 @@
               text-color="#000"
               active-text-color="rgb(44,138,255)"
           >
-            <img :src="icon" style="float: left; width: 40px; height: 40px; position: relative; top: 7px; left: 15px" alt="">
+            <img :src="icon" style="float: left; width: 40px; height: 40px; position: relative; top: 7px; left: 15px"
+                 alt="">
             <div id="logo" @click="routerLink('/main')">
               {{ mallName }}
             </div>
@@ -28,9 +29,11 @@
                 <el-menu-item index="/personal" class="menu-item"
                               @click="routerLink('/personal')">
                   <el-avatar size="small">
-                    <img :src="this.userInform.userImg" alt="">
+                    <img :src="baseURL + this.userInform.userImg" alt="">
                   </el-avatar>
-                  &nbsp;{{ this.userInform.nickname }}
+                  <span id="nickname">
+                    {{ this.userInform.nickname }}
+                  </span>
                 </el-menu-item>
                 <el-menu-item slot="reference" index="/logout" class="menu-item" @click="logout">退出登录
                 </el-menu-item>
@@ -54,9 +57,11 @@
 
 <script>
 import icon from '../assets/mall-icon.png';
+
 export default {
   data() {
     return {
+      baseURL: this.$imgBaseUrl,
       hasToken: false,
       icon: icon,
       mallName: '好 名 字 商 城',
@@ -100,14 +105,14 @@ export default {
       }
     },
     getUserInform() {
-      if (JSON.parse(localStorage.getItem('userInform'))){
+      if (JSON.parse(localStorage.getItem('userInform'))) {
         this.userInform = JSON.parse(localStorage.getItem('userInform'));
       }
     }
   },
   created() {
     this.getUserInform();
-    if (JSON.parse(localStorage.getItem('userInform'))){
+    if (JSON.parse(localStorage.getItem('userInform'))) {
       this.hasToken = true;
     }
   },
@@ -150,7 +155,7 @@ export default {
   margin-top: 70px;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 800px) {
   #logo {
     position: relative;
     top: 5px;
@@ -158,6 +163,12 @@ export default {
     padding-left: 30px;
     color: black;
     font-family: 'Microsoft YaHei', serif;
+    font-size: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #nickname {
     font-size: 0;
   }
 }

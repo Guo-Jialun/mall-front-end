@@ -6,7 +6,7 @@
     <div v-else>
       <div id="container">
         <div v-if="this.cartList.length === 0">
-          <el-empty description="你的购物车还没有商品哦" :image-size="400"></el-empty>
+          <el-empty description="你的购物车还没有商品哦" :image-size="200"></el-empty>
         </div>
         <div v-else>
           <h3>我的购物车</h3>
@@ -24,15 +24,13 @@
         </div>
       </div>
       <div class="bottomBar">
-        <div style="width: 60%; margin: 0 auto">
-          <div style="width: 50%; display: inline-block; text-align: left">
+        <div style="width: 100%; margin: 0 0">
+          <div id="total">
+            <span>合计：<span style="color: red">￥{{ checkPrice }}</span></span>
+          </div>
+          <div style="width: 100%; margin: 0 auto">
             <el-button type="primary" round @click="selectReverse" class="myButton">反选</el-button>
             <el-button type="primary" round @click="selectAll" ref="selectAll" class="myButton">全选</el-button>
-            <div style="position:relative; left: 30px; top: 3px; display: inline-block; text-align: center">
-              <span>合计：<span style="color: red;">￥{{ checkPrice }}</span></span>
-            </div>
-          </div>
-          <div style="width: 50%; display: inline-block; text-align: right">
             <el-popconfirm title="确定删除吗？" @confirm="deleteItems" class="myButton" style="margin: 0 10px">
               <el-button type="danger" round class="myButton" slot="reference">删除</el-button>
             </el-popconfirm>
@@ -40,6 +38,9 @@
               <el-button type="success" round class="myButton" slot="reference">结算</el-button>
             </el-popconfirm>
           </div>
+          <!--          <div style="width: 50%; display: inline-block; text-align: right">-->
+          <!--            -->
+          <!--          </div>-->
         </div>
       </div>
     </div>
@@ -77,7 +78,7 @@ export default {
     check() {
       if (!JSON.parse(localStorage.getItem('userInform')).realname ||
           !JSON.parse(localStorage.getItem('userInform')).userMobile ||
-        !JSON.parse(localStorage.getItem('userInform')).userAddress) {
+          !JSON.parse(localStorage.getItem('userInform')).userAddress) {
         this.$message.warning('请完善个人信息！');
         setTimeout(() => {
           this.$router.push('/personal/personal');
@@ -106,8 +107,7 @@ export default {
               this.selectCartIdSet.clear();
               this.checkPrice = 0;
               this.getCarts();
-            }
-            else {
+            } else {
               this.$message.error(res.msg);
             }
           });
@@ -237,10 +237,33 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 90px;
   background-color: rgba(210, 210, 210, 1);
   z-index: 10;
   padding-top: 20px;
+}
+
+#total {
+  position: relative;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center
+}
+
+@media screen and (max-width: 1200px) {
+  .cartItemContainer {
+    width: 90%;
+    margin: 0 auto 100px auto;
+  }
+
+  .myButton {
+    width: 80px;
+  }
+
+  #total {
+    text-align: center
+  }
+
 }
 
 </style>

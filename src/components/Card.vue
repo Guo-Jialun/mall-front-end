@@ -1,7 +1,7 @@
 <template>
   <el-card :body-style="{ padding: '15px' }" class="card">
-    <img :src="goodsData.imgs && goodsData.imgs.length ? goodsData.imgs[0].url : ''"
-         onerror="this.src = 'img/加载失败.png'"
+    <img :src="goodsData.imgs && goodsData.imgs.length ? baseURL + goodsData.imgs[0].url : ''"
+         :onerror="this.src = baseURL + 'img/加载失败.png'"
          class="image"
          @click="showDetail(goodsData.productId)" alt="">
     <div style="padding: 14px; text-align: left">
@@ -21,6 +21,7 @@ export default {
   props: ['data'],
   data() {
     return {
+      baseURL: this.$imgBaseUrl,
       goodsData: {},
     }
   },

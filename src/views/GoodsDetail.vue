@@ -2,16 +2,16 @@
   <div id="container">
     <el-row id="description">
       <el-col :span="4">
-        <img :src="detail.img" alt=""
-             onerror="this.src='img/加载失败.png';"
+        <img :src="baseURL + detail.img" alt=""
+             :onerror="this.src='../assets/default.png'"
              style="width: 100%; border-radius: 15px"/>
       </el-col>
       <el-col :span="20">
+        <span style="display: inline; font-size: 15px; float: right">（库存：{{ detail.stock }}）</span>
         <div style="text-align: left; padding: 10px 20px;">
           <p style="font-weight: bold; margin-top: 5px; display: inline">{{ detail.goodsName }}</p>
-          <span style="display: inline; font-size: 15px; float: right">（库存：{{ detail.stock }}）</span>
           <p style="word-wrap: break-word">{{ detail.description }}</p>
-          <p style="color: #666666; position: absolute; bottom: 12px">
+          <p id="p1">
             <i class="el-icon-s-shop" style="font-size: 25px"></i>
             {{ detail.storeName }}
             <el-button type="text" style="padding: 0; font-size: 18px" @click="enterShop"> 进店逛逛>></el-button>
@@ -56,6 +56,7 @@ export default {
   components: {Comment},
   data() {
     return {
+      baseURL: this.$imgBaseUrl,
       detail: {
         goodsName: null,
         img: null,
@@ -187,6 +188,12 @@ export default {
   background-color: #eeeeee;
 }
 
+#p1 {
+  color: #666666;
+  position: absolute;
+  bottom: 10px
+}
+
 #comment {
   text-align: left;
 }
@@ -198,5 +205,36 @@ export default {
   font-size: 35px;
   font-weight: bold;
   color: red;
+}
+
+@media screen and (max-width: 1200px) {
+  #container {
+    width: 90%;
+    margin: 85px auto 20px auto;
+
+  }
+
+  #description {
+    padding: 20px 20px 80px 20px;
+    border-radius: 15px;
+    background-color: #eeeeee;
+  }
+
+  .price {
+    position: absolute;
+    bottom: 80px;
+    right: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #p1 {
+    color: #666666;
+    position: absolute;
+    bottom: 70px
+  }
 }
 </style>

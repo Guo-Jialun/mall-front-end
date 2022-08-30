@@ -11,6 +11,7 @@ ElementUI.Dialog.props.lockScroll.default = false;
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$http = http;
+Vue.prototype.$imgBaseUrl = 'http://192.168.1.101:8081/'
 
 router.afterEach(() => {
   window.scrollTo(0, 0);

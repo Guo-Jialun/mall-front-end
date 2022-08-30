@@ -1,18 +1,20 @@
 <template>
   <div class="comment">
     <el-row>
-      <span style="position: absolute; right: 20px; color: #888888">{{ commentData.date }}</span>
+
       <div style="position: absolute;">
         <el-avatar :size="50">
-          <img id="avatar" :src="commentData.avatar" style="width: 50px" alt="">
+          <img id="avatar" :src="baseURL + commentData.avatar" style="width: 50px" alt="">
         </el-avatar>
       </div>
       <div style="margin-left: 70px;">
-        <div style="height: 30px; margin-top: 10px">
-          <div style="font-weight: bold; margin-bottom: 10px; float: left">
-            {{ commentData.nickname }}
+        <div style="height: 30px">
+          <div style="font-weight: bold; margin-bottom: 10px; display: inline-block">
+            <span style="font-size: 20px">{{ commentData.nickname }}</span>
           </div>
-          <div style="float:left; margin-left: 30px">
+          <span> · </span>
+          <span style="color: #888888; font-size: 18px">{{ commentData.date }}</span>
+          <div style="top: -10px">
             <el-rate v-model="commentData.stars" :colors="colors" disabled></el-rate>
           </div>
         </div>
@@ -21,13 +23,13 @@
         </div>
       </div>
       <div>
-        <div style="width: 100px; float: right">
-          <i class="iconfont icon-ali-cai icons" ref="cai" style="position: relative; top: 2px;" @click="cai"></i>
-          <span style="font-size: 20px; float: left;"> ({{ commentData.numOfCai }})</span>
+        <div style="width: 80px; float: right">
+          <span style="font-size: 15px; float: right;"> ({{ commentData.numOfCai }})</span>
+          <i class="iconfont icon-ali-cai icons" ref="cai" style="position: relative; top: 2px; font-size: 15px; float: right" @click="cai"></i>
         </div>
-        <div style="width: 100px; float: right">
-          <i class="iconfont icon-ali-zan icons" ref="zan" @click="zan"></i>
-          <span style="font-size: 20px; float: left;"> ({{ commentData.numOfZan }})</span>
+        <div style="width: 80px; float: right">
+          <span style="font-size: 15px; float: right;"> ({{ commentData.numOfZan }})</span>
+          <i class="iconfont icon-ali-zan icons" ref="zan" style="font-size: 15px; float:right;" @click="zan"></i>
         </div>
       </div>
     </el-row>
@@ -40,6 +42,7 @@ export default {
   props: ['data'],
   data() {
     return {
+      baseURL: this.$imgBaseUrl,
       commentData: null,
       colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
       zanClicked: false,
@@ -114,7 +117,7 @@ export default {
 
 .comment-content {
   word-wrap: break-word;
-  padding: 20px 0;
+  padding: 30px 0;
 
 }
 

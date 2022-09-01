@@ -80,7 +80,10 @@ const http = {
             _axios({
                 url,
                 params,
-                headers: {'Content-Type': 'application/json;charset=UTF-8'},
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'Access-Control-Allow-Origin': 'http://39.101.68.6'
+                },
                 method: 'GET'
             }).then(res => {
                 resolve(res.data);
@@ -95,7 +98,10 @@ const http = {
             _axios({
                 url,
                 data: params,
-                headers: {'Content-Type': 'application/json;charset=UTF-8'},
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'Access-Control-Allow-Origin': 'http://39.101.68.6'
+                },
                 method: 'POST'
             }).then(res => {
                 resolve(res.data)
@@ -110,7 +116,10 @@ const http = {
             _axios({
                 url,
                 data: params,
-                headers: {'Content-Type': 'application/json;charset=UTF-8'},
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'Access-Control-Allow-Origin': 'http://39.101.68.6'
+                },
                 method: 'PUT'
             }).then(res => {
                 resolve(res.data)

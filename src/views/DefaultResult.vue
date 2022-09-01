@@ -2,7 +2,7 @@
     <div style="margin-bottom: 100px">
       <el-carousel :interval="1500">
         <el-carousel-item v-for="item in this.indexImg" :key="item.imgId">
-          <img :src="baseURL + item.imgUrl" style="width: 100%; height: 100%; border-radius: 20px" alt="" @click="showDetail(item.prodId)">
+          <img :src="baseURL + item.imgUrl" style="width: 100%; height: 100%;" alt="" @click="showDetail(item.prodId)">
         </el-carousel-item>
       </el-carousel>
       <div v-for="(category, index) in this.categoryList" :key=index>

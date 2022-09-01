@@ -51,7 +51,10 @@ const routes = [
             },
             {
                 path: '/login',
-                component: () => import('../views/Login')
+                component: () =>
+                    import('../views/Login')
+                    // import('../assets/login.png')
+
             },
             {
                 path: '/register',
@@ -98,7 +101,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    // mode: 'history',
+    mode: 'history',
     routes
 })
 

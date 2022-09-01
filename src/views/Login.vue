@@ -3,7 +3,9 @@
     <h1 style="color: #444444">
       欢 迎 登 录
     </h1>
-    <br><hr><br><br>
+    <br>
+    <hr>
+    <br><br>
     <el-form
         :model="ruleForm"
         status-icon
@@ -12,6 +14,7 @@
         class="demo-ruleForm">
       <el-form-item prop="username">
         <el-input
+            style="background-color: rgba(255, 255, 255, 0.2)"
             placeholder="请输入用户名"
             prefix-icon="el-icon-user"
             type="text"
@@ -20,7 +23,8 @@
             autocomplete="off"
             @keyup.down.native="focusPassword">
         </el-input>
-      </el-form-item> <br>
+      </el-form-item>
+      <br>
       <el-form-item prop="pass">
         <el-input
             placeholder="请输入密码"
@@ -32,7 +36,8 @@
             @keyup.up.native="focusUsername"
             @keyup.enter.native="submitForm">
         </el-input>
-      </el-form-item> <br>
+      </el-form-item>
+      <br>
       <el-form-item style="width: 100%; height: 40px">
         <div style="float: right; width: 300px">
           <div style="float: right">
@@ -123,7 +128,13 @@ export default {
 
 <style scoped>
 #form {
-  background: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+  background-image: url("../assets/login.png");
+  background-size: 300px;
+  background-position: top;
+  background-position-x: -25px;
+  background-position-y: 283px;
+  background-repeat: no-repeat;
   padding: 40px 50px 80px 50px;
   width: 350px;
   margin: 160px auto;
@@ -131,9 +142,9 @@ export default {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   #form {
-    background: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 40px 30px 80px 30px;
     width: 280px;
     margin: 100px auto;

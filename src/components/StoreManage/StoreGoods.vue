@@ -14,7 +14,7 @@
         <el-table-column label="图片" prop="img">
           <template slot-scope="scope">
             <el-popover trigger="hover" placement="right-end" :close-delay=0>
-              <img :src="scope.row.img" alt="加载失败" style="width: 200px; height: 200px">
+              <img :src="baseURL + scope.row.img" alt="加载失败" style="width: 200px; height: 200px">
               <div slot="reference" class="name-wrapper" style="width: 70px">
                 <el-tag size="medium">查看图片</el-tag>
               </div>
@@ -109,6 +109,7 @@ export default {
   name: 'StoreGoods',
   data() {
     return {
+      baseURL: this.$imgBaseUrl,
       storeId: null,
       storeName: '',
       storeStatus: null,

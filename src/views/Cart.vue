@@ -2,6 +2,8 @@
   <div>
     <div v-if="!isLogin" style="margin-top: 300px">
       <h1><i class="el-icon-error" style="color: red"></i> 请先登录！</h1>
+      <br>
+      <p>{{this.seconds}}秒后自动<el-button type="text" style="font-size: 20px" @click="toLogin">跳转登录页面...</el-button></p>
     </div>
     <div v-else>
       <div id="container">
@@ -38,9 +40,6 @@
               <el-button type="success" round class="myButton" slot="reference">结算</el-button>
             </el-popconfirm>
           </div>
-          <!--          <div style="width: 50%; display: inline-block; text-align: right">-->
-          <!--            -->
-          <!--          </div>-->
         </div>
       </div>
     </div>
@@ -55,6 +54,7 @@ export default {
   components: {CartItem},
   data() {
     return {
+      seconds: 3, //倒计时秒数
       selectCartIdSet: new Set,
       checkPrice: 0,
       cartList: [],
@@ -195,15 +195,36 @@ export default {
               this.$message.error(res1.msg);
             }
           });
+    },
+
+    myTimer(seconds) {
+      if (this.seconds === 0) {
+        this.toLogin();
+        return;
+      }
+      if (seconds === 3) {
+        clearTimeout();
+      }
+      setTimeout(() => {
+        this.seconds--;
+        this.myTimer(this.seconds);
+      },1000)
     }
   },
+
   computed: {
     isLogin() {
       return localStorage.getItem('token') !== null;
     }
   },
   created() {
-    this.getCarts();
+    if (this.isLogin){
+      this.getCarts();
+    }
+    if (!this.isLogin) {
+      this.seconds = 3;
+      this.myTimer(this.seconds);
+    }
   }
 }
 </script>

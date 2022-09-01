@@ -46,6 +46,16 @@
           </el-menu>
         </div>
       </el-header>
+      <div v-if="this.$route.path === '/index'" id="ad1">
+        <p class="ad-p1">广 告 位 招 租</p>
+        <p class="ad-p2">招商热线:</p>
+        <p class="ad-p3">18888888888</p>
+      </div>
+      <div v-if="this.$route.path === '/index'" id="ad2">
+        <p class="ad-p1">广 告 位 招 租</p>
+        <p class="ad-p2">招商热线:</p>
+        <p class="ad-p3">18888888888</p>
+      </div>
     </el-container>
     <div id="bottom">
       <keep-alive include="Search">
@@ -57,6 +67,7 @@
 
 <script>
 import icon from '../assets/mall-icon.png';
+import Swal from "sweetalert2";
 
 export default {
   data() {
@@ -64,7 +75,7 @@ export default {
       baseURL: this.$imgBaseUrl,
       hasToken: false,
       icon: icon,
-      mallName: '好 名 字 商 城',
+      mallName: '嘉 伦 商 城',
       userInform: {
         nickname: '',
         userImg: '',
@@ -115,6 +126,16 @@ export default {
     if (JSON.parse(localStorage.getItem('userInform'))) {
       this.hasToken = true;
     }
+    if (this.$route.path === '/index') {
+      Swal.fire({
+        html: '欢迎光临',
+        icon: 'info',
+        color: 'red',
+        background: 'rgba(255,255,255,0.9)',
+        width: 1000,
+        confirmButtonText: '确定'
+      })
+    }
   },
   watch: {
     $route() {
@@ -155,6 +176,48 @@ export default {
   margin-top: 70px;
 }
 
+#ad1 {
+  position: fixed;
+  background-color: white;
+  left: 35px;
+  top: 150px;
+  width: 250px;
+  height: 710px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+#ad2 {
+  position: fixed;
+  background-color: white;
+  right: 35px;
+  top: 150px;
+  width: 250px;
+  height: 710px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.ad-p1 {
+  position: relative;
+  left: -15px;
+  height: 80%; writing-mode: vertical-rl;
+  font-size: 80px;
+  color: red;
+}
+
+.ad-p2 {
+  font-size: 20px;
+  color: #3967FF;
+}
+
+.ad-p3 {
+  font-size: 25px;
+  background-color: red;
+  color: yellow;
+  margin: 0 20px;
+}
+
 @media screen and (max-width: 800px) {
   #logo {
     position: relative;
@@ -164,6 +227,12 @@ export default {
     color: black;
     font-family: 'Microsoft YaHei', serif;
     font-size: 0;
+  }
+}
+
+@media screen and (max-width: 1810px) {
+  #ad1, #ad2 {
+    display: none;
   }
 }
 

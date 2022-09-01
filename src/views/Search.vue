@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="width: 100%;
-    height: 150px;
+    height: 120px;
     z-index: 3;
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC) fixed;
     position: fixed; top: 0">
@@ -89,7 +89,7 @@ export default {
 
 @media screen and (max-width: 1200px){
   #container {
-    top: 85px;
+    top: 68px;
     width: 90%;
   }
 
@@ -100,7 +100,7 @@ export default {
     left: 0;
     right: 0;
     margin: auto;
-    top: 85px;
+    top: 68px;
     border: #cccccc solid 1px;
     border-radius: 5px;
   }

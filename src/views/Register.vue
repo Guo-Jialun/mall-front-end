@@ -113,7 +113,13 @@ export default {
 
 <style scoped>
 #form {
-  background: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+  background-image: url("../assets/login.png");
+  background-size: 300px;
+  background-position: top;
+  background-position-x: -25px;
+  background-position-y: 368px;
+  background-repeat: no-repeat;
   padding: 40px 50px 80px 50px;
   width: 350px;
   margin: 160px auto;

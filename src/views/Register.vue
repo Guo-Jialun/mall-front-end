@@ -112,19 +112,22 @@ export default {
 </script>
 
 <style scoped>
-#form {
-  background-color: rgba(255, 255, 255, 0.7);
-  background-image: url("../assets/login.png");
-  background-size: 300px;
-  background-position: top;
-  background-position-x: -25px;
-  background-position-y: 368px;
-  background-repeat: no-repeat;
-  padding: 40px 50px 80px 50px;
-  width: 350px;
-  margin: 160px auto;
-  border-radius: 20px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4)
+
+@media screen and (min-width: 1200px) {
+  #form {
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url("../assets/login.png");
+    background-size: 300px;
+    background-position: top;
+    background-position-x: -25px;
+    background-position-y: 368px;
+    background-repeat: no-repeat;
+    padding: 40px 50px 80px 50px;
+    width: 350px;
+    margin: 160px auto;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4)
+  }
 }
 
 @media screen and (max-width: 1200px){
